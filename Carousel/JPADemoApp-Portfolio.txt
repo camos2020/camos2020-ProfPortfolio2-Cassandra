@@ -1,0 +1,59 @@
+package com.example.accessingdatajpa;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+public class AccessingJpaDataApplication {
+    private static final Logger log = LoggerFactory.getLogger(AccessingJpaDataApplication.class);
+
+    public static void main(String[] args) {
+        SpringApplication.run(AccessingJpaDataApplication.class, args);
+    }
+
+    @Bean
+    public CommandLineRunner demo(CustomerRepository repository) {
+        return (args) -> {
+            //Save some customers
+            repository.save(new Customer("John", "Wick"));
+            repository.save(new Customer("Robert", "McCall"));
+            repository.save(new Customer("Richard", "Riddick"));
+            repository.save(new Customer("Michael", "Corleone"));
+            repository.save(new Customer("Billy", "Valentine"));
+
+            //fetch all customers
+            log.info("Customers found with findAll():");
+            log.info("--------------------------------");
+            for (Customer customer : repository.findAll()) {
+                log.info(customer.toString());
+            }
+            log.info("");
+
+            //fetch an individual customer by ID
+            Customer customer = repository.findById(1);
+            log.info("Customers found with findById(1):");
+            log.info("--------------------------------");
+            log.info(customer.toString());
+            log.info("");
+
+            //fetch customers by last name
+            log.info("Customers found with findByLastName('Riddick'):");
+            log.info("--------------------------------");
+            repository.findByLastName("Riddick").forEach(riddick -> {
+                log.info(riddick.toString());
+            });
+            log.info(customer.toString());
+            log.info("");
+
+            //fetch customers by first name
+            log.info("Customers found with findByFirstName('Robert'):");
+            log.info("--------------------------------");
+            repository.findByFirstName("Robert").forEach(robert -> {
+                log.info(robert.toString());
+            });
+    }
+}

@@ -1,0 +1,78 @@
+/* css classes are referenced with a "." */
+#aboutMe {
+  color: blue;
+  font-weight: bold;
+  text-align: center;
+}
+
+#c_Amos_Info {
+  color: black;
+  font-weight: bold;
+  text-align: left;
+}
+
+#email {
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  font-style: italic;
+}
+
+#BioPic {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.footer {
+  text-align: left;
+}
+
+.lists {
+  text-align: left;
+}
+
+/* CSS id's are refferenced with a "#" */
+#logo {
+  padding: 5px;
+  text-align: center;
+}
+
+/* a chained selector can dive down into multiple elements  */
+div h2 {
+  text-align: center;
+}
+
+.footer {
+  text-align: left;
+}
+
+.topMain {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav ul li {
+  background-color: rebeccapurple;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.nav ul li a {
+  color: white;
+  font-size: 15px;
+}
+
